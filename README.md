@@ -1,5 +1,5 @@
 # error-editor ![NPM Package Version](https://img.shields.io/npm/v/error-editor?style=flat-square&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Ferror-editor)
-Catches errors from functions and promises, allows edits of errors, and throws them again.  
+Error-Editor is a zero-dependency module that catches errors from functions and promises, allows edits of errors, and throws caught errors again.  
 ![Dependents](https://img.shields.io/librariesio/dependents/npm/error-editor?link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Ferror-editor%3FactiveTab%3Ddependents)
 <!-- ![Downloads](https://img.shields.io/npm/dt/error-editor) -->
 
