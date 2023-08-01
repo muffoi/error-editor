@@ -1,0 +1,25 @@
+{
+  "name": "error-editor",
+  "version": "1.0.0",
+  "description": "Catches errors, allows edits of them and throws errors again.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "engines": {
+    "node": "<=18"
+  },
+  "keywords": [
+    "error",
+    "catch",
+    "throw",
+    "errors",
+    "try",
+    "trycatch",
+    "edit",
+    "editor"
+  ],
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "author": "Muffoi (https://muffoi.github.io)",
+  "license": "BSD-3-Clause"
+}
