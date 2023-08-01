@@ -1,6 +1,6 @@
 {
   "name": "error-editor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Catches errors, allows edits of them and throws errors again.",
   "main": "index.js",
   "types": "index.d.ts",
