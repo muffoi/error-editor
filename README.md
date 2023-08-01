@@ -10,6 +10,8 @@ Through NPM:
 npm install error-editor
 ```
 
+
+
 <h2 id="use">Usage</h2>
 
 Require with CommonJS:
@@ -20,6 +22,8 @@ Or with ES6 `import`:
 ```javascript
 import * as errorEditor from "error-editor";
 ```
+
+
 
 <h2 id="docs">Documentation</h2>
 
@@ -32,6 +36,7 @@ import * as errorEditor from "error-editor";
     - [`CaughtError.throw()`](#ce-throw)
 - [`errorEditor.version`](#ee-ver)
 
+
 <h3 id="ee-ce"><code>errorEditor.catchError(value, ...params)</code> <small><i>from <code>v1.0.0</code></i></small></h3>
 
 **Parameters:**  
@@ -39,7 +44,7 @@ import * as errorEditor from "error-editor";
 - `params: any[]` - Parameters to pass into `value` when called (if `value` is a *function*). *Optional.*
 
 Catches an error from `value` parameter and returns a *promise* that resolves to it's [`CaughtError`](#ce) form, if no error occurs, *promise* resolves to `value`'s return/resolve value.  
-If the `value` argument is not a function or a [thenable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables), a `TypeError` will be thrown.
+If the `value` argument is not a function or a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables" target="_blank">thenable</a>, a `TypeError` will be thrown.
 
 ***Note:** `throw` statements that are not called with, and `Promise` rejects with something else than an `Error` or its child are considered as `Error` object with `message` set to that value.*
 
@@ -62,6 +67,7 @@ let baz = Promise.reject("Error appeared!");
 let err = await errorEditor.catchError(baz);
 err; // CaughtError {constr: Error, message: "Error appeared!"}
 ```
+
 
 <h3 id="ee-ces"><code>errorEditor.catchErrorSync(value, ...params)</code> <small><i>from <code>v1.0.0</code></i></small></h3>
 
@@ -93,6 +99,7 @@ let err = errorEditor.catchErrorSync(baz);
 err; // CaughtError {constr: Error, message: "Error appeared!"}
 ```
 
+
 <h3 id="ce">class <code>errorEditor.CaughtError</code> <small><i>from <code>v1.0.0</code></i></small></h3>
 <h3 id="ce-const">class constructor</h3>
 
@@ -101,18 +108,22 @@ err; // CaughtError {constr: Error, message: "Error appeared!"}
 - `constr: NewableFunction|void` - Error's constructor. *Defaults to `Error`.*
 If the `constr` argument is not a newable, a `TypeError` will be thrown.
 
+
 <h3 id="ce-msg"><code>CaughtError.message</code> <small><i>from <code>v1.0.0</code></i></small></h3>
 
 Error message used to construct the error. *Editable.*
+
 
 <h3 id="ce-constr"><code>CaughtError.constr</code> <small><i>from <code>v1.0.0</code></i></small></h3>
 
 Error constructor used to construct the error. *Editable.*
 
+
 <h3 id="ce-throw"><code>CaughtError.throw()</code> <small><i>from <code>v1.0.0</code></i></small></h3>
 
 Throws an error based on instance's properties. The `message` property will be stringified.  
 If the `constr` property is not a newable, a `TypeError` will be thrown.
+
 
 <h3 id="ee-ver"><code>errorEditor.version</code> <small><i>from <code>v1.0.0</code></i></small></h3>
 
