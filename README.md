@@ -106,8 +106,8 @@ err; // CaughtError {constr: Error, message: "Error appeared!"}
 **Parameters:**
 - `message: string|void` - Error's `message` property. *Defaults to `""` (empty string).*
 - `constr: NewableFunction|void` - Error's constructor. *Defaults to `Error`.*
-If the `constr` argument is not a newable, a `TypeError` will be thrown.
 
+If constructing new `constr` throws an error, the `Error` constructor will be saved to object.
 
 <h3 id="ce-msg"><code>CaughtError.message</code> <small><i>from <code>v1.0.0</code></i></small></h3>
 
@@ -122,8 +122,7 @@ Error constructor used to construct the error. *Editable.*
 <h3 id="ce-throw"><code>CaughtError.throw()</code> <small><i>from <code>v1.0.0</code></i></small></h3>
 
 Throws an error based on instance's properties. The `message` property will be stringified.  
-If the `constr` property is not a newable, a `TypeError` will be thrown.
-
+If constructing new `constr` throws an error, the `Error` constructor will be used.
 
 <h3 id="ee-ver"><code>errorEditor.version</code> <small><i>from <code>v1.0.0</code></i></small></h3>
 

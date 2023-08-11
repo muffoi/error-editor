@@ -1,21 +1,23 @@
 const CaughtError = class CaughtError {
     constructor(message="",constr=Error){
-        try {throw new constr()} catch(e) {
-            if(e.name=="TypeError"&&e.message=="constr is not a constructor") throw new TypeError("'constr' argument is not a constructor")
+        let cons=constr;
+        try {new cons()} catch(e) {
+            cons=Error;
         }
         this.message=message;
-        this.constr=constr;
+        this.constr=cons;
     }
     throw(){
-        try {throw new this.constr()} catch(e) {
-            if(e.name=="TypeError"&&e.message=="this.constr is not a constructor") throw new TypeError("'constr' property is not a constructor")
+        let constr = this.constr;
+        try {new constr()} catch(e) {
+            constr = Error;
         }
         let msg = this.message.toString();
-        throw new this.constr(msg);
+        throw new constr(msg);
     }
 }
 
-const _EE = new class ErrorEditor {
+const _EXPORT = new class ErrorEditor {
     async catchError(value,...params) {
         if(typeof value!="function"&&typeof value!="object"&&typeof value.then!="function")
           throw new TypeError("Argument 'func' is not of type 'function' or a thenable");
@@ -62,15 +64,15 @@ const _EE = new class ErrorEditor {
     version = require("./package.json").version
 }
 
-for (let i in _EE) {
-    Object.defineProperty(_EE, i, {
+for (let i in _EXPORT) {
+    Object.defineProperty(_EXPORT, i, {
         writable:false,
         configurable:false
     });
-    let tp = typeof _EE[i];
-    if(tp == "function"||tp == "object") Object.freeze(_EE[i]);
+    let tp = typeof _EXPORT[i];
+    if(tp == "function"||tp == "object") Object.freeze(_EXPORT[i]);
 }
 
-Object.freeze(_EE);
+Object.freeze(_EXPORT);
 
-module.exports = _EE;
+module.exports = _EXPORT;
